@@ -562,4 +562,10 @@ static inline bool is_migrate_highatomic_page(struct page *page)
 
 void setup_zone_pageset(struct zone *zone);
 extern struct page *alloc_new_node_page(struct page *page, unsigned long node);
+
+extern void look_around(struct page_vma_mapped_walk *pvmw, 
+                        struct page *page, struct vm_area_struct *vma, int *referenced);
+extern void check_page_look_around_ref(struct page *page, int *look_around_ref);
+extern void test_clear_look_around_ref(struct page *page);
+extern void look_around_migrate_page(struct page *old_page, struct page *new_page);
 #endif	/* __MM_INTERNAL_H */
