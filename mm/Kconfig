@@ -764,4 +764,12 @@ config GUP_BENCHMARK
 config ARCH_HAS_PTE_SPECIAL
 	bool
 
+config LOOK_AROUND
+	bool "Look around strategy optimization rmap"
+	default n
+	help
+	  This feature is inspired by the MG-LRU strategy,
+	  aimed at optimizing the kswapd recycling process and
+	  improving memory recycling efficiency.
+
 endmenu

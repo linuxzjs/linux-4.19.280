@@ -115,7 +115,7 @@ void page_referenced_look_around(struct page_vma_mapped_walk *pvmw)
 }
 
 void look_around(struct page_vma_mapped_walk *pvmw, 
-							struct page *page, struct vm_area_struct *vma, int *referenced)
+				struct page *page, struct vm_area_struct *vma, int *referenced)
 {
 	if (!PageActive(page) && pte_young(*pvmw->pte) &&
 		!(vma->vm_flags & (VM_SEQ_READ | VM_RAND_READ))) {

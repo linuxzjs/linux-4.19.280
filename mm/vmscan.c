@@ -1007,13 +1007,15 @@ static enum page_references page_check_references(struct page *page,
 {
 	int referenced_ptes, referenced_page;
 	unsigned long vm_flags;
+
+	#ifdef CONFIG_LOOK_AROUND
 	int ref = 0;
 
 	check_page_look_around_ref(page, &ref);
     if (ref) {
 		return ref;
     }
-
+	#endif
 
 	referenced_ptes = page_referenced(page, 1, sc->target_mem_cgroup,
 					  &vm_flags);

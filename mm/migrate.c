@@ -696,7 +696,9 @@ void migrate_page_states(struct page *newpage, struct page *page)
 	if (PageMappedToDisk(page))
 		SetPageMappedToDisk(newpage);
 	
+	#ifdef CONFIG_LOOK_AROUND
 	look_around_migrate_page(page, newpage);
+	#endif
 
 	/* Move dirty on pages not done by migrate_page_move_mapping() */
 	if (PageDirty(page))

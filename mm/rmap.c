@@ -771,7 +771,9 @@ static bool page_referenced_one(struct page *page, struct vm_area_struct *vma,
 		}
 
 		if (pvmw.pte) {
+			#ifdef CONFIG_LOOK_AROUND
 			look_around(&pvmw, page, vma, &referenced);
+			#endif
 			if (ptep_clear_flush_young_notify(vma, address,
 						pvmw.pte)) {
 				/*
